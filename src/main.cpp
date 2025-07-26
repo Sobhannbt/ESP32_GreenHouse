@@ -8,6 +8,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+////////////////////// Variables /////////////////////////
 // Wi-Fi credentials
 const char* wifi_ssid = "your-SSID"; // Replace with your Wi-Fi SSID
 const char* wifi_password = "your-PASSWORD"; // Replace with your Wi-Fi password
@@ -25,6 +26,9 @@ Adafruit_BME280 bme; // I2C interface (SDA: GPIO21, SCL: GPIO22)
 const int soilMoisturePin = 36; // ADC1_0 (GPIO36) for capacitive soil moisture sensor
 const int dryValue = 4095; // ADC value for dry soil (adjust based on calibration)
 const int wetValue = 1500;  // ADC value for wet soil (adjust based on calibration)
+
+//////////////////////////////////////////////////////////////
+////////////////////// Definitions //////////////////////
 
 // OLED settings (1-inch, 128x64, SSD1306)
 #define SCREEN_WIDTH 128
@@ -45,10 +49,13 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 WiFiClient espClient;
 PubSubClient client(espClient);
 
+//////////////////////////////////////////////////////////////
 ////////////////////// Private Function //////////////////////
+
 void connectWiFi();
 void connectMQTT();
 void displaySensorData();
+
 //////////////////////////////////////////////////////////////
 
 
